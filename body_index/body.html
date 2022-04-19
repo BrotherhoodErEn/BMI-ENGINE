@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Index</title>
+    <script src="body.js"></script>
+    <style type="text/css">
+        body {
+            background-color: dimgray;
+        }
+
+        .solbar {
+
+            float: left;
+            width: 300px;
+            height: 1000px;
+            border: darkslateblue ridge 2px;
+            background-image: url("wp4686123.jpg");
+            color: gray;
+            text-align: center;
+            font-size: 30px;
+            text-align: justify;
+            text-shadow: wheat 2px 2px 5px;
+        }
+
+        .sagbar {
+
+            float: right;
+            width: 300px;
+            height: 1000px;
+            border: darkslateblue ridge 2px;
+            background-image: url("wp4686123.jpg");
+            background-repeat: no-repeat;
+            color:gray;
+            font-size: 23px;
+            text-align: justify;
+            text-shadow: wheat 2px 2px 5px;
+
+        }
+
+        .container {
+            float: left;
+            width: 1260px;
+            height: 1000px;
+            border: darkslategrey ridge 2px;
+            /* background-attachment: fixed; */
+            background-image: url("1white-flames.jpg");
+            margin: 5px;
+            margin-left: 6px;
+            color:black;
+            text-align:center;
+            font-size: 25px;
+            text-shadow: blanchedalmond 2px 2px 5px;
+            font-family: monospace;
+        }
+        hr{
+
+            background-color: grey;
+            color: hotpink;
+            text-shadow: hotpink 2px 2px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="solbar">
+        <p>20 kg/m2 ‘nin (BMI) altında ise Zayıf : Kişinin boyu ile ağırlığı arasındaki fark çoktur ve kişinin ağırlığı
+            boyuyla kıyaslandığı zaman yetersiz kalır.</p><br>
+        <p>
+            20-24.9 kg/m2 (BMI) arasında ise Normal Kilolu :Kişinin boyu ile kilosu arasındaki orantının dengede ve
+            ideal olduğunu gösterir.</p><br>
+
+        <p>25-29.9 kg/m2 (BMI) arasında ise Hafif Şişman : Kişinin boyu ile kilosu arasındaki fark azdır ama kilosu
+            boyuna göre fazladır yani fazla kiloludur.</p>
+
+    </div>
+
+    <div class="sagbar">
+        <p>30-34.9 kg/m2 (BMI) arasında ise Orta Derecede Şişman : Kişinin kilosu boyuna oranla fazladır. 1.derecede obez
+            olarak değerlendirilen bu kişiler diyetisyen yardımıyla kilo vermeye başlamalıdırlar. Sahip oldukları kilo
+            çeşitli hastalıkların da başlangıcı olabilir.
+        </p><br>
+
+       <p>35-39.9 kg/m2 (BMI) arasında ise Ağır Derecede Şişman : Kişinin kilosu ve boy arasındaki oran açıktır ve kilosu
+        boyuna oranla daha fazladır. 2.derecede ‘Obez’ olarak sınıflandırılan bu kişilerde tansiyon, kalp ve damar
+        hastalıkları ile diyabete yakalanma oranı yüksektir. Diyetisyen ve spor yardımıyla kilo vermeye başlamalıdırlar</p><br>
+
+        <p>40 kg/m2 (BMI) ‘nin üzerinde ise Çok Ağır Derecede Şişman : 3. Derecede ‘Morbid Obez’ olarak değerlendirilen bu
+            kategorideki kişilerin hastalığa yakalanma riski en üst düzeydedir. Doktor kontrolünde ve diyetisyen yardımıyla
+            kilo vermeye başlamalıdırlar.</p><br>
+    </div>
+    <div class="container">
+        <form name="bmiForm">
+            Kilonuz(kg): <input type="text" name="weight" size="5"><br />
+            Boyunuz(cm): <input type="text" name="height" size="5"><br />
+            <input style="font-family: monospace;" type="button" value="Hesapla" onClick="HesaplaBmi()"><br />
+            <br>
+            <hr>
+            <br>
+            <hr>
+            Çıkan BMI:<input type="text" name="bmi" size="20"><br />
+            <!-- <input style="font-family: monospace;" type="reset" value="Temizlemek İçin Tıklayın" /><br> -->
+            Demek Oluyor Ki: <input type="text" name="meaning" size="25"><br />
+        </form>
+    </div>
+    <script type="text/javascript" language="javascript">
+
+        function HesaplaBmi() {
+            var weight = document.bmiForm.weight.value;
+            var height = document.bmiForm.height.value;
+            if (weight > 0 && height > 0) {
+                var finalBmi = weight / (height ** 2)
+                document.bmiForm.bmi.value = finalBmi;
+                if (finalBmi < 18.5) {
+                    document.bmiForm.meaning.value = "Zayıf."
+                }
+                if (finalBmi > 18.5 && finalBmi < 25) {
+                    document.bmiForm.meaning.value = "Sağlıklısınız."
+
+                }
+                if (finalBmi > 25) {
+                    document.bmiForm.meaning.value = "Obez."
+                }
+            }
+            else {
+                alert("Lütfen Boş Olan Yerleri Doldurun!")
+            }
+        }
+
+    </script>
+</body>
+
+</html>
